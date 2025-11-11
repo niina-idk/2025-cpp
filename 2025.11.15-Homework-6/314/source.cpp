@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+void ttowers(int n, int from, int to, int temp);
+
+int main(int argc, char** argv)
+{
+	int n = 0;
+	scanf_s("%d", &n);
+
+	ttowers(n, 1, 2, 3);
+	return 0;
+}
+
+void ttowers(int n, int from, int to, int temp)
+{
+	if (n == 1)
+	{
+		printf("Disk 1 move from %d to %d\n", from, to);
+	}
+	else
+	{
+		ttowers(n - 1, from, temp, to);
+		printf("Disk %d move from %d to %d\n", n, from, to);
+		ttowers(n - 1, temp, to, from);
+	}
+}
